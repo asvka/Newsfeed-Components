@@ -112,24 +112,53 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
-// const articles = document.querySelector('.article');
-// articles.forEach((x) => {
-//   article.appendChild(createComponent(x.article, x.title, x.date, x.firstParagraph,x.secondParagraph,x.thirdParagraph));
-// });
+const articles = document.querySelector('.articles');
+data.forEach((x) => {
+  articles.appendChild(createArticle(x.title, x.date, x.firstParagraph, x.secondParagraph,x.thirdParagraph));
+});
 
-function createComponent (title, date, firstParagraph, secondParagraph, thirdParagraph){
+// const buttons = document.querySelectorAll('.expand-button');
+// buttons.forEach((x) => {
+//   articles.addEventListener('click' () =>{
+
+//   }
+// })
+
+function createArticle (title, date, firstParagraph, secondParagraph, thirdParagraph){
   const article = document.createElement('div');
   const articleTitle = document.createElement('h2');
   const pDate = document.createElement('p');
   const p1 = document.createElement('p');
   const p2 = document.createElement('p');
   const p3 = document.createElement('p');
+  const expandButton = document.createElement('span');
+  const closeButton = document.createElement('span');
 
   article.appendChild(articleTitle);
   article.appendChild(pDate);
   article.appendChild(p1);
   article.appendChild(p2);
   article.appendChild(p3);
+  article.appendChild(expandButton);
+  article.appendChild(closeButton);
 
-  return createComponent();
+  article.classList.add('article');
+  articleTitle.classList.add('article-title');
+  pDate.classList.add('date');
+  p1.classList.add('first-paragraph');
+  p2.classList.add('second-paragraph');
+  p3.classList.add('third-paragraph');
+  expandButton.classList.add('expand-button');
+  closeButton.classList.add('close-button', 'hide-btn');
+
+  articleTitle.textContent = title;
+  pDate.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+  // expandButton.textContent = 'Click for more';
+
+
+
+  return article;
 }
