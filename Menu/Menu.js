@@ -36,26 +36,30 @@ let menuItems = [
 // menuItems.forEach(()=>{
 
 // })
+const header = document.querySelector('.header');
+const menuButton = document.querySelector('.menu-button');
 
 
-
-function menuComponent(menuItems){
+function menuComponent(arr){
   const menu = document.createElement('div');
   const list = document.createElement('ul');
 
-
+  // menuButton.appendChild('menu');
   menu.appendChild(list);
-  list.appendChild('listItem');
 
-  menuItems.forEach((x) => {
+  arr.forEach((x) => {
     const listItem = document.createElement('li');
     listItem.textContent = x;
+    list.appendChild(listItem);
+    listItem.style.cursor = 'pointer';
+    listItem.style.listStyle = 'none';
   })
 
-  const menuButton = document.querySelector('.menu-button');
-  menuButton.addEventListener('click', () => {
-    menu.classList.toggle('menu--open');
-  });
+  menu.classList.add('menu');
 
+  menuButton.addEventListener('click', (e) => {
+    menu.classList.toggle('menu--open');
+  })
   return menu;
 }
+ header.appendChild(menuComponent(menuItems))

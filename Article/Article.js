@@ -152,5 +152,12 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
 }
 
 data.map((a) => {
-  return articles.appendChild(createArticle(a.title, a.date, a.firstParagraph, a.secondParagraph, a.thirdParagraph));
-})
+  let articleToAppend = createArticle(
+    a.title,
+    a.date,
+    a.firstParagraph,
+    a.secondParagraph,
+    a.thirdParagraph,
+    );
+    return articles.appendChild(articleToAppend);
+});
