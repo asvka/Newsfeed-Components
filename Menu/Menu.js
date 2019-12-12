@@ -40,14 +40,14 @@ const header = document.querySelector('.header');
 const menuButton = document.querySelector('.menu-button');
 
 
-function menuComponent(arr){
+function menuComponent(menuItems){
   const menu = document.createElement('div');
   const list = document.createElement('ul');
 
   // menuButton.appendChild('menu');
   menu.appendChild(list);
 
-  arr.forEach((x) => {
+  menuItems.forEach((x) => {
     const listItem = document.createElement('li');
     listItem.textContent = x;
     list.appendChild(listItem);
@@ -59,7 +59,8 @@ function menuComponent(arr){
 
   menuButton.addEventListener('click', (e) => {
     menu.classList.toggle('menu--open');
+
   })
   return menu;
 }
- header.appendChild(menuComponent(menuItems))
+  header.appendChild(menuComponent(menuItems));
